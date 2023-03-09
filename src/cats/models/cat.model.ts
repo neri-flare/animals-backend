@@ -1,5 +1,4 @@
-import { Field, ObjectType } from '@nestjs/graphql';
-import { Owner } from 'src/owners/models/owner.model';
+import { Field, ObjectType, InputType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Cat {
@@ -7,6 +6,18 @@ export class Cat {
   id: string;
 
   @Field(() => String)
+  name: string;
+
+  @Field({ nullable: true })
+  color: string;
+
+  @Field()
+  ownerId?: string;
+}
+
+@InputType()
+export class CatInput {
+  @Field()
   name: string;
 
   @Field({ nullable: true })

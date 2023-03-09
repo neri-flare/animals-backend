@@ -18,9 +18,6 @@ export class OwnersDal {
   async getAllOwners(): Promise<Owner[]> {
     return this.ownerModel.find().exec();
   }
-  async getAllOwnersByCatId(catId: string): Promise<OwnerDocument[]> {
-    return this.ownerModel.find({ catId });
-  }
 
   async createOwner(createOwnerDto: CreateOwnerDto): Promise<Owner> {
     const createdOwner = new this.ownerModel(createOwnerDto);
@@ -28,13 +25,9 @@ export class OwnersDal {
   }
 
   async updateOwner(updateOwnerDto: UpdateOwnerDto) {
-    const { id, name, gender, age, catId } = updateOwnerDto;
+    const { id, name, gender, age } = updateOwnerDto;
     const ownerToUpdate = await this.ownerModel
-      .findOneAndUpdate(
-        { _id: id },
-        { age, gender, name, catId },
-        { new: true },
-      )
+      .findOneAndUpdate({ _id: id }, { age, gender, name }, { new: true })
       .exec();
 
     return ownerToUpdate;

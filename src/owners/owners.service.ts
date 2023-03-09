@@ -20,10 +20,6 @@ export class OwnersService {
     return this.ownersDal.getAllOwners();
   }
 
-  async getAllOwnersByCatId(catId: string): Promise<Owner[]> {
-    return this.ownersDal.getAllOwnersByCatId(catId);
-  }
-
   async createOwner(createOwnerDto: CreateOwnerDto): Promise<Owner> {
     return this.ownersDal.createOwner(createOwnerDto);
   }

@@ -2,6 +2,9 @@ import { Field, InputType, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Owner {
+  @Field(() => String)
+  id: string;
+
   @Field()
   name: string;
 
@@ -9,7 +12,16 @@ export class Owner {
   age?: number;
 
   @Field()
-  catId?: string;
+  gender: string;
+}
+
+@InputType()
+export class OwnerInput {
+  @Field()
+  name: string;
+
+  @Field(() => Int, { nullable: true })
+  age?: number;
 
   @Field()
   gender: string;

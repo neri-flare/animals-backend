@@ -13,9 +13,6 @@ export class Owner {
 
   @Prop()
   age: number;
-
-  @Prop()
-  catId: string;
 }
 
 export const OwnerSchema = SchemaFactory.createForClass(Owner);

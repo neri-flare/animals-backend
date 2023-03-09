@@ -1,29 +1,6 @@
-import {
-  Args,
-  Field,
-  InputType,
-  Int,
-  Mutation,
-  Query,
-  Resolver,
-} from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { OwnersService } from 'src/owners/owners.service';
-import { Owner } from 'src/owners/models/owner.model';
-
-@InputType()
-export class OwnerInput {
-  @Field()
-  name: string;
-
-  @Field(() => Int, { nullable: true })
-  age?: number;
-
-  @Field()
-  catId?: string;
-
-  @Field()
-  gender: string;
-}
+import { Owner, OwnerInput } from 'src/owners/models/owner.model';
 
 @Resolver(() => Owner)
 export class OwnersResolver {

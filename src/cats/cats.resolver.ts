@@ -1,7 +1,5 @@
 import {
   Args,
-  Field,
-  InputType,
   Mutation,
   Parent,
   Query,
@@ -11,22 +9,7 @@ import {
 import { OwnersService } from 'src/owners/owners.service';
 import { Owner } from 'src/owners/models/owner.model';
 import { CatsService } from './cats.service';
-import { Cat } from './models/cat.model';
-
-@InputType()
-export class CatInput {
-  @Field()
-  name: string;
-
-  @Field({ nullable: true })
-  color: string;
-
-  @Field({ nullable: true })
-  gender: string;
-
-  @Field()
-  ownerId?: string;
-}
+import { Cat, CatInput } from './models/cat.model';
 
 @Resolver(() => Cat)
 export class CatsResolver {
@@ -42,8 +25,8 @@ export class CatsResolver {
 
   @ResolveField(() => Owner)
   async owner(@Parent() cat: Cat) {
-    const { id: catId } = cat;
-    return this.ownersService.getAllOwnersByCatId(catId);
+    const { ownerId } = cat;
+    return this.ownersService.getOwner(ownerId);
   }
 
   @Mutation(() => Cat)
