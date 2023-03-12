@@ -9,8 +9,8 @@ import { Dog, DogDocument } from '../schemas/dog.schema';
 export class DogsDal {
   constructor(@InjectModel(Dog.name) private dogModel: Model<DogDocument>) {}
 
-  async getDog(id: string): Promise<Dog> {
-    return this.dogModel.findById(id).exec();
+  async getDog(name: string): Promise<Dog> {
+    return this.dogModel.findOne({ name }).exec();
   }
 
   async getAllDogs(): Promise<Dog[]> {

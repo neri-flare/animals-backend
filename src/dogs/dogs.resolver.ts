@@ -7,8 +7,8 @@ export class DogsResolver {
   constructor(private readonly dogsService: DogsService) {}
 
   @Query(() => Dog)
-  async dog(@Args('id', { type: () => String }) id: string) {
-    return this.dogsService.getDog(id);
+  async dog(@Args('name', { type: () => String }) name: string) {
+    return this.dogsService.getDog(name);
   }
 
   @Mutation(() => Dog)

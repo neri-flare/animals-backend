@@ -8,10 +8,10 @@ import { Elephant } from './schemas/elephant.schema';
 export class ElephantsService {
   constructor(private readonly elephantsDal: ElephantsDal) {}
 
-  async getElephant(id: string): Promise<Elephant> {
-    const elephant = await this.elephantsDal.getElephant(id);
+  async getElephant(name: string): Promise<Elephant> {
+    const elephant = await this.elephantsDal.getElephant(name);
     if (!elephant) {
-      throw new NotFoundException(`elephant with ID "${id}" was not found`);
+      throw new NotFoundException(`elephant with name "${name}" was not found`);
     }
     return elephant;
   }

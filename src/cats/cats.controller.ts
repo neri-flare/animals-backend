@@ -16,9 +16,9 @@ import { UpdateCatDto } from './dto/update-cat.dto';
 export class CatsController {
   constructor(private catsService: CatsService) {}
 
-  @Get(':id')
-  getCat(@Param('id') id: string): Promise<Cat> {
-    return this.catsService.getCat(id);
+  @Get(':name')
+  getCat(@Param('name') name: string): Promise<Cat> {
+    return this.catsService.getCat(name);
   }
 
   @Get()

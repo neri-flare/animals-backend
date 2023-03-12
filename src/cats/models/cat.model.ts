@@ -2,10 +2,10 @@ import { Field, ObjectType, InputType } from '@nestjs/graphql';
 
 @ObjectType()
 export class Cat {
-  @Field(() => String)
+  @Field()
   id: string;
 
-  @Field(() => String)
+  @Field()
   name: string;
 
   @Field({ nullable: true })

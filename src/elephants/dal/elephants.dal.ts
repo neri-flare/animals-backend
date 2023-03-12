@@ -11,8 +11,8 @@ export class ElephantsDal {
     @InjectModel(Elephant.name) private elephantModel: Model<ElephantDocument>,
   ) {}
 
-  async getElephant(id: string): Promise<Elephant> {
-    return this.elephantModel.findById(id).exec();
+  async getElephant(name: string): Promise<Elephant> {
+    return this.elephantModel.findOne({ name }).exec();
   }
 
   async getAllElephants(): Promise<Elephant[]> {

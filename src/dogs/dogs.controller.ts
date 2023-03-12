@@ -17,8 +17,8 @@ export class DogsController {
   constructor(private dogsService: DogsService) {}
 
   @Get(':id')
-  getDog(@Param('id') id: string): Promise<Dog> {
-    return this.dogsService.getDog(id);
+  getDog(@Param('name') name: string): Promise<Dog> {
+    return this.dogsService.getDog(name);
   }
 
   @Get()

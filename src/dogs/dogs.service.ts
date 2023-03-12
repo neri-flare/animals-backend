@@ -8,10 +8,10 @@ import { Dog } from './schemas/dog.schema';
 export class DogsService {
   constructor(private readonly dogsDal: DogsDal) {}
 
-  async getDog(id: string): Promise<Dog> {
-    const dog = await this.dogsDal.getDog(id);
+  async getDog(name: string): Promise<Dog> {
+    const dog = await this.dogsDal.getDog(name);
     if (!dog) {
-      throw new NotFoundException(`dog with ID "${id}" was not found`);
+      throw new NotFoundException(`dog with name "${name}" was not found`);
     }
     return dog;
   }

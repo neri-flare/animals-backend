@@ -19,8 +19,8 @@ export class CatsResolver {
   ) {}
 
   @Query(() => Cat)
-  async cat(@Args('id', { type: () => String }) id: string) {
-    return this.catsService.getCat(id);
+  async cat(@Args('name', { type: () => String }) name: string) {
+    return this.catsService.getCat(name);
   }
 
   @ResolveField(() => Owner)

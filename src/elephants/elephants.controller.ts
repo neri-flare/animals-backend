@@ -16,9 +16,9 @@ import { Elephant } from './elephant.model';
 export class ElephantsController {
   constructor(private elephantsService: ElephantsService) {}
 
-  @Get(':id')
-  getElephant(@Param('id') id: string): Promise<Elephant> {
-    return this.elephantsService.getElephant(id);
+  @Get(':name')
+  getElephant(@Param('name') name: string): Promise<Elephant> {
+    return this.elephantsService.getElephant(name);
   }
 
   @Get()

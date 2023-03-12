@@ -8,10 +8,10 @@ import { Cat } from './schemas/cat.schema';
 export class CatsService {
   constructor(private readonly catsDal: CatsDal) {}
 
-  async getCat(id: string): Promise<Cat> {
-    const cat = await this.catsDal.getCat(id);
+  async getCat(name: string): Promise<Cat> {
+    const cat = await this.catsDal.getCat(name);
     if (!cat) {
-      throw new NotFoundException(`cat with ID "${id}" was not found`);
+      throw new NotFoundException(`cat with name "${name}" was not found`);
     }
     return cat;
   }

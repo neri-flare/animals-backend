@@ -9,8 +9,8 @@ import { Cat, CatDocument } from '../schemas/cat.schema';
 export class CatsDal {
   constructor(@InjectModel(Cat.name) private catModel: Model<CatDocument>) {}
 
-  async getCat(id: string): Promise<Cat> {
-    return this.catModel.findById(id).exec();
+  async getCat(name: string): Promise<Cat> {
+    return this.catModel.findOne({ name }).exec();
   }
 
   async getAllCats(): Promise<Cat[]> {

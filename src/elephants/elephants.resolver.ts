@@ -7,8 +7,8 @@ export class ElephantsResolver {
   constructor(private readonly elephantsService: ElephantsService) {}
 
   @Query(() => Elephant)
-  async elephant(@Args('id', { type: () => String }) id: string) {
-    return this.elephantsService.getElephant(id);
+  async elephant(@Args('name', { type: () => String }) name: string) {
+    return this.elephantsService.getElephant(name);
   }
 
   @Mutation(() => Elephant)
