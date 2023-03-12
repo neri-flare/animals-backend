@@ -7,8 +7,8 @@ export class OwnersResolver {
   constructor(private readonly ownersService: OwnersService) {}
 
   @Query(() => Owner)
-  async owner(@Args('id', { type: () => String }) id: string) {
-    return this.ownersService.getOwner(id);
+  async owner(@Args('name', { type: () => String }) name: string) {
+    return this.ownersService.getOwnerByName(name);
   }
 
   @Query(() => [Owner])

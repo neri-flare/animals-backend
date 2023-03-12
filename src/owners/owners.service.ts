@@ -8,11 +8,13 @@ import { Owner } from './schemas/owner.schema';
 export class OwnersService {
   constructor(private readonly ownersDal: OwnersDal) {}
 
-  async getOwner(id: string): Promise<Owner> {
-    const owner = await this.ownersDal.getOwner(id);
-    // if (!owner) {
-    //   throw new NotFoundException(`owner with ID "${id}" was not found`);
-    // }
+  async getOwnerByName(name: string): Promise<Owner> {
+    const owner = await this.ownersDal.getOwnerByName(name);
+    return owner;
+  }
+
+  async getOwnerById(id: string): Promise<Owner> {
+    const owner = await this.ownersDal.getOwnerById(id);
     return owner;
   }
 

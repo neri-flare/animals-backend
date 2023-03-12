@@ -31,7 +31,7 @@ export class DogsResolver {
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() dog: Dog) {
     const { ownerId } = dog;
-    return this.ownersService.getOwner(ownerId);
+    return this.ownersService.getOwnerById(ownerId);
   }
 
   @Mutation(() => Dog)

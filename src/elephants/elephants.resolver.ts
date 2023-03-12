@@ -31,7 +31,7 @@ export class ElephantsResolver {
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() elephant: Elephant) {
     const { ownerId } = elephant;
-    return this.ownersService.getOwner(ownerId);
+    return this.ownersService.getOwnerById(ownerId);
   }
 
   @Mutation(() => Elephant)

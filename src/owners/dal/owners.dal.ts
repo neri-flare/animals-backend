@@ -11,8 +11,12 @@ export class OwnersDal {
     @InjectModel(Owner.name) private ownerModel: Model<OwnerDocument>,
   ) {}
 
-  async getOwner(id: string): Promise<Owner> {
+  async getOwnerById(id: string): Promise<Owner> {
     return this.ownerModel.findById(id).exec();
+  }
+
+  async getOwnerByName(name: string): Promise<Owner> {
+    return this.ownerModel.findOne({ name }).exec();
   }
 
   async getAllOwners(): Promise<Owner[]> {
@@ -38,7 +42,7 @@ export class OwnersDal {
   }
 
   async increaseAge(id: string) {
-    const owner = await this.getOwner(id);
+    const owner = await this.getOwnerById(id);
     return this.ownerModel.findOneAndUpdate(
       { _id: id },
       { age: owner.age + 1 },

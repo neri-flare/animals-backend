@@ -18,7 +18,7 @@ export class OwnersController {
 
   @Get(':id')
   getOwner(@Param('id') id: string): Promise<Owner> {
-    return this.ownersService.getOwner(id);
+    return this.ownersService.getOwnerById(id);
   }
 
   @Get()

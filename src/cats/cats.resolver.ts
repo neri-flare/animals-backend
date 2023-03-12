@@ -31,7 +31,7 @@ export class CatsResolver {
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() cat: Cat) {
     const { ownerId } = cat;
-    return this.ownersService.getOwner(ownerId);
+    return this.ownersService.getOwnerById(ownerId);
   }
 
   @Mutation(() => Cat)
