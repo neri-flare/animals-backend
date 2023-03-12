@@ -23,6 +23,11 @@ export class CatsResolver {
     return this.catsService.getCat(name);
   }
 
+  @Query(() => [Cat])
+  async cats() {
+    return this.catsService.getAllCats();
+  }
+
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() cat: Cat) {
     const { ownerId } = cat;

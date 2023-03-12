@@ -23,6 +23,11 @@ export class DogsResolver {
     return this.dogsService.getDog(name);
   }
 
+  @Query(() => [Dog])
+  async dogs() {
+    return this.dogsService.getAllDogs();
+  }
+
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() dog: Dog) {
     const { ownerId } = dog;

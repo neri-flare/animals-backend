@@ -23,6 +23,11 @@ export class ElephantsResolver {
     return this.elephantsService.getElephant(name);
   }
 
+  @Query(() => [Elephant])
+  async elephants() {
+    return this.elephantsService.getAllElephants();
+  }
+
   @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() elephant: Elephant) {
     const { ownerId } = elephant;

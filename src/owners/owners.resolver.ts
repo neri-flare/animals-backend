@@ -11,6 +11,11 @@ export class OwnersResolver {
     return this.ownersService.getOwner(id);
   }
 
+  @Query(() => [Owner])
+  async owners() {
+    return this.ownersService.getAllOwners();
+  }
+
   @Mutation(() => Owner)
   async createOwner(@Args('createOwnerData') createOwnerData: OwnerInput) {
     return this.ownersService.createOwner(createOwnerData);
