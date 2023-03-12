@@ -23,7 +23,7 @@ export class CatsResolver {
     return this.catsService.getCat(name);
   }
 
-  @ResolveField(() => Owner)
+  @ResolveField(() => Owner, { nullable: true })
   async owner(@Parent() cat: Cat) {
     const { ownerId } = cat;
     return this.ownersService.getOwner(ownerId);

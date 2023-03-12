@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { OwnersModule } from 'src/owners/owners.module';
 import { ElephantsDal } from './dal/elephants.dal';
 import { ElephantsController } from './elephants.controller';
 import { ElephantsResolver } from './elephants.resolver';
@@ -11,6 +12,7 @@ import { Elephant, ElephantSchema } from './schemas/elephant.schema';
     MongooseModule.forFeature([
       { name: Elephant.name, schema: ElephantSchema },
     ]),
+    OwnersModule,
   ],
   controllers: [ElephantsController],
   providers: [ElephantsService, ElephantsDal, ElephantsResolver],

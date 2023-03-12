@@ -11,7 +11,7 @@ export class Cat {
   @Field({ nullable: true })
   color: string;
 
-  @Field()
+  @Field({ nullable: true })
   ownerId?: string;
 }
 
@@ -23,6 +23,6 @@ export class CatInput {
   @Field({ nullable: true })
   color: string;
 
-  @Field()
+  @Field({ nullable: true })
   ownerId?: string;
 }

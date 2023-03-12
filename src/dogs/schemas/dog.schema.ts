@@ -13,6 +13,9 @@ export class Dog {
 
   @Prop()
   breed: string;
+
+  @Prop()
+  ownerId?: string;
 }
 
 export const DogSchema = SchemaFactory.createForClass(Dog);

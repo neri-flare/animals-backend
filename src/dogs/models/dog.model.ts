@@ -8,11 +8,14 @@ export class Dog {
   @Field(() => String)
   name: string;
 
-  @Field({ nullable: true })
+  @Field()
   breed: string;
 
   @Field()
   gender: string;
+
+  @Field({ nullable: true })
+  ownerId?: string;
 }
 
 @InputType()
@@ -20,9 +23,12 @@ export class DogInput {
   @Field()
   name: string;
 
-  @Field({ nullable: true })
+  @Field()
   breed: string;
 
   @Field()
   gender: string;
+
+  @Field({ nullable: true })
+  ownerId?: string;
 }

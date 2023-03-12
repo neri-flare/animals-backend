@@ -13,6 +13,9 @@ export class Elephant {
 
   @Field()
   gender: string;
+
+  @Field({ nullable: true })
+  ownerId?: string;
 }
 
 @InputType()
@@ -25,4 +28,7 @@ export class ElephantInput {
 
   @Field()
   gender: string;
+
+  @Field({ nullable: true })
+  ownerId?: string;
 }

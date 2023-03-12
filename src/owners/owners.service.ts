@@ -10,9 +10,9 @@ export class OwnersService {
 
   async getOwner(id: string): Promise<Owner> {
     const owner = await this.ownersDal.getOwner(id);
-    if (!owner) {
-      throw new NotFoundException(`owner with ID "${id}" was not found`);
-    }
+    // if (!owner) {
+    //   throw new NotFoundException(`owner with ID "${id}" was not found`);
+    // }
     return owner;
   }
 

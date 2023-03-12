@@ -13,6 +13,9 @@ export class Elephant {
 
   @Prop()
   trunkLength: number;
+
+  @Prop()
+  ownerId?: string;
 }
 
 export const ElephantSchema = SchemaFactory.createForClass(Elephant);
