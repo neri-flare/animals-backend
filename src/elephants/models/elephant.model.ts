@@ -1,4 +1,5 @@
 import { Field, ObjectType, InputType } from '@nestjs/graphql';
+import { Gender } from 'src/app.types';
 
 @ObjectType()
 export class Elephant {
@@ -12,7 +13,7 @@ export class Elephant {
   trunkLength: number;
 
   @Field()
-  gender: string;
+  gender: Gender;
 
   @Field({ nullable: true })
   ownerId?: string;
@@ -27,7 +28,7 @@ export class ElephantInput {
   trunkLength: number;
 
   @Field()
-  gender: string;
+  gender: Gender;
 
   @Field({ nullable: true })
   ownerId?: string;

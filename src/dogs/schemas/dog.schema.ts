@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Gender } from 'src/app.types';
 
 export type DogDocument = HydratedDocument<Dog>;
 
@@ -9,7 +10,7 @@ export class Dog {
   name: string;
 
   @Prop()
-  gender: string;
+  gender: Gender;
 
   @Prop()
   breed: string;

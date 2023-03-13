@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Gender } from 'src/app.types';
 
 export type ElephantDocument = HydratedDocument<Elephant>;
 
@@ -9,7 +10,7 @@ export class Elephant {
   name: string;
 
   @Prop()
-  gender: string;
+  gender: Gender;
 
   @Prop()
   trunkLength: number;

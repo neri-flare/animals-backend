@@ -1,5 +1,7 @@
+import { Gender } from 'src/app.types';
+
 export class CreateOwnerDto {
   name: string;
-  gender: string;
+  gender: Gender;
   age?: number;
 }

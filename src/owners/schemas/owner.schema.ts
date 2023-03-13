@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
+import { Gender } from 'src/app.types';
 
 export type OwnerDocument = HydratedDocument<Owner>;
 
@@ -9,7 +10,7 @@ export class Owner {
   name: string;
 
   @Prop()
-  gender: string;
+  gender: Gender;
 
   @Prop()
   age: number;
